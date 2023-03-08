@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Coin toss</title>
+</head>
+
+<body>
+<button id="btn" type="submit">Toss The Coin</button>
+<div id="results"></div>
+
+
+<script>
+var btn = document.querySelector('#btn')
+var results = document.querySelector('#results')
+var arr = ['Head', 'Tails']
+
+
+btn.addEventListener('click', toss)
+
+function toss(){
+	
+ //btn dis is used for single task at a time
+ btn.disabled = true;
+ var random = Math.floor(Math.random() * arr.length)
+ 
+ //take the image from my folder then sets its height and width using Image() then location using src then append image on results div 
+ 
+ var img = new Image(100, 130)
+ img.src = 'coin.gif';
+ results.appendChild(img);
+
+
+ setTimeout(function(){
+ results.textContent = `${arr[random]} is The call` 
+ }, 1000)
+ 
+ setTimeout(function(){
+ results.textContent = ''
+ btn.innerHTML = 'Toss Again'
+ btn.disabled = false; // when toss is completed then btn again free to use 
+ }, 4000)
+ 
+	}
+
+
+
+</script>
+</body>
+
+</html>

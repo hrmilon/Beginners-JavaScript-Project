@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="">
+	<title>Calculator @3</title>
+</head>
+<body>
+	
+<input type="text" id="screen">	
+
+<div id="buttons">
+	<button id="btn" data-num="+">+</button>
+	<button id="btn" data-num="-">-</button>
+	<button id="btn" data-num="*">*</button>
+	<button id="btn" data-num="/">/</button>
+	             
+	<button id="btn" data-num="1">1</button>
+	<button id="btn" data-num="2">2</button>
+	<button id="btn" data-num="3">3</button>
+	<button id="btn" data-num="4">4</button>
+	<button id="btn" data-num="5">5</button>
+	<button id="btn" data-num="6">6</button>
+	<button id="btn" data-num="7">7</button>
+	<button id="btn" data-num="8">8</button>
+	<button id="btn" data-num="9">9</button>
+	<button id="btn" data-num="0">0</button>
+	                
+	<button id="equal">=</button>
+	<button id="clear">C</button>
+</div>
+
+
+
+<script>
+
+( function(){
+	var screen = document.querySelector('#screen')
+	var btn = document.querySelectorAll('#btn')
+	var equal = document.querySelector('#equal')
+  var clear = document.querySelector('#clear')
+  
+btn.forEach(function (button){
+	button.addEventListener('click' , function (e){
+		var getInputFromButton = e.target.dataset.num
+		screen.value = screen.value + getInputFromButton
+	})
+})
+
+equal.addEventListener('click' , function(){
+	let solve = eval(screen.value)
+	screen.value = solve
+})
+
+clear.addEventListener('click' , function(){
+	screen.value = ""
+})
+
+}) ()
+
+</script>
+</body>
+</html>

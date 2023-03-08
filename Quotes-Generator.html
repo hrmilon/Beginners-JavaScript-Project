@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Quotes Generator</title>
+</head>
+<body>
+	
+	<button id="btn" type="submit">Generate</button>
+  <p id="total"></p>
+  
+ <div id="index"></div>	
+	
+	
+<script>
+ 
+	const quotes = [
+	{
+		quote: "The best way to predict the future is to invent it.",
+		author: "Alan Kay"
+  },
+	{
+		quote: "The only way to do great work is to love what you do.",
+		author: "Steve Jobs"
+  },
+	{
+		quote: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+		author: "Winston Churchill"
+  }
+];
+
+var btn = document.querySelector('button')
+var serial = document.querySelector('#index')
+var total = document.querySelector('#total')
+
+btn.addEventListener('click', generate)
+
+function generate(){
+	var random = Math.floor(Math.random() * quotes.length)
+  var templatStr =` 🔖 ${quotes[random].quote}  
+  									--- ❤️ ${quotes[random].author} `
+
+//for keeping every generated qoutes in timeline those code are necessary to use   									
+//newQuotes first creates a div then give txt value by innerText
+
+var newQuotes = document.createElement('div')  
+    newQuotes.innerText = templatStr
+
+//then newQ or div who has the quotes inserted into serial or a already defined div #index 
+    serial.append(newQuotes)
+    
+}
+
+//counting how many codes are generated
+
+var counter = 0 
+if(btn){
+	btn.addEventListener('click', function() {
+		counter++
+		total.innerText = counter + ' Quotes are generated'
+	})
+}
+
+
+
+</script>	
+</body>
+</html>

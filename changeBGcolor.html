@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BGcolor Changer</title>
+</head>
+<body>
+	
+<button>Click</button>
+<div id="index"></div>
+
+<script>
+	
+	var body = document.querySelector('body')
+	var button = document.querySelector('button')
+  var index = document.querySelector('#index')
+
+	button.addEventListener('click', changeB)
+
+function changeB(){
+
+//red, green, blue var are created random number max value 255
+
+	var red = Math.floor(Math.random()*255);
+	var green = Math.floor(Math.random()*255);
+	var blue = Math.floor(Math.random()*255);
+
+//template string
+
+  var color = `rgb(${red}, ${blue}, ${green})`
+  body.style.backgroundColor = color
+  index.textContent = color //output the rgb code
+}
+
+
+</script>
+</body>
+</html>
